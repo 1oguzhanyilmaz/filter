@@ -1,0 +1,18 @@
+{
+    "name": "oy/filter",
+    "description": "test pack",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oğuzhan Yılmaz",
+            "email": "45510538+1oguzhanyilmaz@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Oy\\": "src/"
+        }
+    }
+}
