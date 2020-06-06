@@ -10,10 +10,12 @@ class MessageServiceProvider extends ServiceProvider
     public function register()
     {
         echo 'register func';
+        echo '<br>';
     }
 
     public function boot()
     {
         echo 'boot func';
+        echo '<br>';
     }
 }
