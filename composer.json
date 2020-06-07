@@ -1,6 +1,6 @@
 {
     "name": "oy/filter",
-    "description": "test pack",
+    "description": "this package has been developed for testing purposes.",
     "license": "MIT",
     "authors": [
         {
@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Oy\\Providers\\MessageServiceProvider"
+                "Oy\\Providers\\FilterServiceProvider"
             ]
         }
     }
