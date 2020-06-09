@@ -15,6 +15,5 @@ class FilterServiceProvider extends ServiceProvider
     public function boot()
     {
         // boot method...
-        // echo '>>> BOOT';
     }
 }

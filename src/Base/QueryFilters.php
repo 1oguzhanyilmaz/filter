@@ -2,6 +2,7 @@
 
 namespace Oy\Base;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -28,7 +29,7 @@ class QueryFilters
             if (!method_exists($this, $key)) {
                 continue;
             }
-            if (strlen($value)) {
+            if (isset($value)) {
                 $this->$key($value);
             } else {
                 $this->$key();
@@ -40,20 +41,24 @@ class QueryFilters
 
     public function filters(){ return array_merge($this->global, $this->request->all()); }
 
-    public function add($key, $value = null){
+    public function add(string $key, ?string $value = null){
         $this->global[$key] = $value;
         return $this;
     }
 
-    public function transform($model){
-        return $this->functions->reduce(function() {
+    public function transform(Model $model){
+        return $this->functions->reduce(function($model, $function) {
             return $function($model);
         }, $model);
     }
 
-    protected function defer($function){
-        $this->functions->push();
+    protected function defer(\Closure $function){
+        $this->functions->push($function);
         return $this;
+    }
+
+    public function request(){
+        return $this->request;
     }
 
 }
